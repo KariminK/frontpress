@@ -1,3 +1,3 @@
-import TextInput from "./TextInput";
+import FormInput from "./FormInput";
 
-export default TextInput;
+export default FormInput;
