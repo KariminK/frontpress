@@ -1,6 +1,4 @@
-import Header from "./Header";
-import Navbar from "./Navbar";
-import Post from "./Post";
-import Content from "./Content";
+import { Post } from "./Post/";
+import { PostList } from "./Post/";
 
-export { Header, Navbar, Post, Content };
+export { Post, PostList };
