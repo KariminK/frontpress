@@ -4,8 +4,13 @@ const LoginLayout = () => {
   return (
     <>
       <Navbar />
-      <h1 className="my-10 text-3xl text-center">Welcome Back!</h1>
-      <div className="max-w-lg p-5 mx-auto border border-gray-100 shadow-xl rounded-xl">
+      <h1 className="my-20 text-5xl text-center">
+        Welcome to{" "}
+        <b className="font-roboto-slab">
+          Front<span className="text-green-500">press</span>
+        </b>
+      </h1>
+      <div className="max-w-xl mx-auto">
         <LoginForm />
       </div>
       <p className="mt-5 text-center">

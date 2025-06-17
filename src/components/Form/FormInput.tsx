@@ -6,7 +6,7 @@ interface FormInputProps {
 
 const FormInput = ({ label, id, name }: FormInputProps) => {
   return (
-    <div className="my-5">
+    <div className="my-10">
       <label className="capitalize" htmlFor={id}>
         {label}
       </label>

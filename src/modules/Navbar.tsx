@@ -10,7 +10,7 @@ const Navbar = () => {
         <li className="">
           <a href="./sign-in">Sign in</a>
         </li>
-        <li className="px-4 py-2 rounded-md bg-linear-180 from-green-400/75 to-green-600/75">
+        <li className="px-4 py-2 rounded-md bg-linear-180 from-green-500/75 to-green-600/75">
           <a href="./login" className="text-white">
             Login
           </a>
