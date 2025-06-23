@@ -18,7 +18,7 @@ const Post = ({
   content,
 }: PostProps) => {
   return (
-    <li className="overflow-hidden rounded-lg">
+    <li className="overflow-hidden shadow-md rounded-lg">
       {image_url && (
         <div className="max-h-80 overflow-hidden flex justify-center items-center">
           <img src={image_url} alt={title} className="w-full" />
@@ -38,7 +38,7 @@ const Post = ({
           </div>
           <p>{create_date}</p>
         </div>
-        <h1 className="text-lg font-medium leading-12">{title}</h1>
+        <h1 className="text-lg font-medium mt-3 mb-2">{title}</h1>
         <PostText>{content}</PostText>
       </div>
     </li>

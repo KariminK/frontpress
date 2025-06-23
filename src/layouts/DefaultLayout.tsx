@@ -1,13 +1,13 @@
-import { JSX } from "react";
+import { ReactNode } from "react";
 import { Footer, Header, Navbar } from "../modules";
 import { PostList } from "../components";
 
-const DefaultLayout = ({ children }: { children: JSX.Element }) => {
+const DefaultLayout = ({ children }: { children: ReactNode[] }) => {
   return (
     <>
       <Navbar />
       <Header />
-      <PostList>{children}</PostList>
+      <PostList>{...children}</PostList>
       <Footer />
     </>
   );
