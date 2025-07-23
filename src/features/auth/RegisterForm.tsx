@@ -1,16 +1,16 @@
-import FormInput from "../components/Form";
+import { Input } from "../../components/ui";
 
-const SignInForm = () => {
+const RegisterForm = () => {
   return (
     <form action="">
-      <FormInput label="email" id="email_input" name="login" />
-      <FormInput label="login" id="login_input" name="login" />
-      <FormInput
+      <Input label="email" id="email_input" name="login" />
+      <Input label="login" id="login_input" name="login" />
+      <Input
         label="confirm password"
         id="confirm_password_input"
         name="confirmPassword"
       />
-      <FormInput label="password" id="password_input" name="password" />
+      <Input label="password" id="password_input" name="password" />
       <input
         type="submit"
         value="Sign in"
@@ -19,4 +19,4 @@ const SignInForm = () => {
     </form>
   );
 };
-export default SignInForm;
+export default RegisterForm;

@@ -1,4 +1,5 @@
-import { Footer, LoginForm, Navbar } from "../modules";
+import { Footer, Navbar } from "../modules";
+import { LoginForm } from "../../features/auth";
 
 const LoginLayout = () => {
   return (

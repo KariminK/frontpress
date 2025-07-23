@@ -1,10 +1,10 @@
-interface FormInputProps {
+interface InputProps {
   label: string;
   name: string;
   id: string;
 }
 
-const FormInput = ({ label, id, name }: FormInputProps) => {
+const Input = ({ label, id, name }: InputProps) => {
   return (
     <div className="my-10">
       <label className="capitalize" htmlFor={id}>
@@ -20,4 +20,4 @@ const FormInput = ({ label, id, name }: FormInputProps) => {
     </div>
   );
 };
-export default FormInput;
+export default Input;

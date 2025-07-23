@@ -1,4 +1,5 @@
-import { Footer, Navbar, SignInForm } from "../modules";
+import { Footer, Navbar } from "../modules";
+import { RegisterForm } from "../../features/auth";
 
 const SignInLayout = () => {
   return (
@@ -12,7 +13,7 @@ const SignInLayout = () => {
           </b>
         </h1>
         <div>
-          <SignInForm />
+          <RegisterForm />
         </div>
       </div>
       <Footer />

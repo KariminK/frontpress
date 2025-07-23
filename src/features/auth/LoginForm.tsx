@@ -1,10 +1,10 @@
-import FormInput from "../components/Form";
+import { Input } from "../../components/ui";
 
 const LoginForm = () => {
   return (
     <form action="">
-      <FormInput label="Login" id="login_input" name="login" />
-      <FormInput label="password" id="password_input" name="password" />
+      <Input label="Login" id="login_input" name="login" />
+      <Input label="password" id="password_input" name="password" />
       <input
         type="submit"
         value="Log in"

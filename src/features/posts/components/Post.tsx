@@ -1,13 +1,4 @@
-import { PostText } from "./";
-
-interface PostProps {
-  image_url?: string;
-  author_image_url: string;
-  author_name: string;
-  create_date: string;
-  title: string;
-  content: string;
-}
+import PostData from "../../../types/Post";
 
 const Post = ({
   image_url,
@@ -16,7 +7,7 @@ const Post = ({
   create_date,
   title,
   content,
-}: PostProps) => {
+}: PostData) => {
   return (
     <li className="overflow-hidden shadow-md rounded-lg">
       {image_url && (
@@ -39,7 +30,9 @@ const Post = ({
           <p>{create_date}</p>
         </div>
         <h1 className="text-lg font-medium mt-3 mb-2">{title}</h1>
-        <PostText>{content}</PostText>
+        <p className="font-normal text-gray-700">
+          {content.length > 100 ? content.slice(0, 100) + "..." : content}
+        </p>
       </div>
     </li>
   );
