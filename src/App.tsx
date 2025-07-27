@@ -1,8 +1,12 @@
-import { DefaultLayout } from "./components/layouts";
-import "./index.css";
+import { BrowserRouter } from "react-router";
+import Router from "./router";
 
 function App() {
-  return <DefaultLayout />;
+  return (
+    <BrowserRouter>
+      <Router></Router>
+    </BrowserRouter>
+  );
 }
 
 export default App;

@@ -1,7 +1,7 @@
-import { Footer, Navbar } from "../modules";
+import { Footer, Navbar } from "../../components/modules";
 import { LoginForm } from "../../features/auth";
 
-const LoginLayout = () => {
+const Login = () => {
   return (
     <>
       <Navbar />
@@ -26,4 +26,4 @@ const LoginLayout = () => {
   );
 };
 
-export default LoginLayout;
+export default Login;

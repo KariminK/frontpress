@@ -1,7 +1,7 @@
-import { Footer, Navbar } from "../modules";
+import { Footer, Navbar } from "../../components/modules";
 import { RegisterForm } from "../../features/auth";
 
-const SignInLayout = () => {
+const Register = () => {
   return (
     <>
       <Navbar />
@@ -21,4 +21,4 @@ const SignInLayout = () => {
   );
 };
 
-export default SignInLayout;
+export default Register;
