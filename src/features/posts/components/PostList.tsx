@@ -1,4 +1,4 @@
-import PostData from "../../../types/Post";
+import { PostData } from "../../../types/post";
 import Post from "./Post";
 
 const PostList = ({ posts }: { posts: PostData[] }) => {

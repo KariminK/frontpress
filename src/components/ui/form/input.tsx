@@ -2,9 +2,10 @@ interface InputProps {
   label: string;
   name: string;
   id: string;
+  type: string;
 }
 
-const Input = ({ label, id, name }: InputProps) => {
+const Input = ({ label, id, name, type }: InputProps) => {
   return (
     <div className="my-10">
       <label className="capitalize" htmlFor={id}>
@@ -12,7 +13,7 @@ const Input = ({ label, id, name }: InputProps) => {
       </label>
       <br />
       <input
-        type="text"
+        type={type}
         name={name}
         id={id}
         className="w-full p-2 mt-2 text-lg border border-gray-200 rounded-lg focus:outline-0 focus:shadow-lg"

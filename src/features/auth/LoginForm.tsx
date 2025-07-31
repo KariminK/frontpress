@@ -1,25 +1,23 @@
-import { useState } from "react";
+import { useActionState } from "react";
 import { Input } from "../../components/ui";
 import { FormErrorList } from "../../components/ui";
+import login from "./actions/loginAction";
 
 const LoginForm = () => {
-  const [formErrors, setFormErrors] = useState<string[]>([]);
-
-  const login = (formData: FormData) => {
-    const login = formData.get("login");
-    const password = formData.get("password");
-
-    if (login === "" || password === "") {
-      const newFormErrors = [...formErrors];
-      newFormErrors.push("Login or password cannot be empty");
-      setFormErrors(newFormErrors);
-    }
-  };
+  const [formErrors, loginAction] = useActionState<string[], FormData>(
+    login,
+    []
+  );
 
   return (
-    <form action={login}>
-      <Input label="Login" id="login_input" name="login" />
-      <Input label="password" id="password_input" name="password" />
+    <form action={loginAction}>
+      <Input label="Email" id="email_input" name="email" type="email" />
+      <Input
+        label="password"
+        id="password_input"
+        name="password"
+        type="password"
+      />
       <input
         type="submit"
         value="Log in"

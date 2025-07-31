@@ -3,14 +3,20 @@ import { Input } from "../../components/ui";
 const RegisterForm = () => {
   return (
     <form action="">
-      <Input label="email" id="email_input" name="login" />
-      <Input label="login" id="login_input" name="login" />
+      <Input label="email" id="email_input" name="email" type="email" />
+      <Input label="username" id="login_input" name="username" type="text" />
+      <Input
+        label="password"
+        id="password_input"
+        name="password"
+        type="password"
+      />
       <Input
         label="confirm password"
         id="confirm_password_input"
         name="confirmPassword"
+        type="password"
       />
-      <Input label="password" id="password_input" name="password" />
       <input
         type="submit"
         value="Sign in"

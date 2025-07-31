@@ -1,4 +1,4 @@
-import PostData from "../../../types/Post";
+import { PostData } from "../../../types/post";
 
 const Post = ({
   image_url,
