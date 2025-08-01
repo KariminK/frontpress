@@ -1,3 +1,5 @@
+import { LogInResBody } from "../../../types/user";
+
 const login = async (
   _prevState: string[],
   formData: FormData
@@ -28,9 +30,11 @@ const login = async (
     requestOptions
   );
 
-  const data = await response.json();
+  const data: LogInResBody = await response.json();
 
-  console.log(data);
+  if (response.status === 200 && response.ok) {
+    localStorage.setItem("token", data.token);
+  }
   return newFormErrors;
 };
 
