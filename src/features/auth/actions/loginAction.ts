@@ -1,12 +1,11 @@
-import { LogInResBody } from "../../../types/user";
+import { LogInResBody, SuccessLogInResBody } from "../../../types/user";
 
 const login = async (
   _prevState: string[],
   formData: FormData
-): Promise<string[]> => {
+): Promise<string[] | SuccessLogInResBody> => {
   const email = formData.get("email") as string;
   const password = formData.get("password") as string;
-
   const newFormErrors: string[] = [];
 
   if (email === "" || password === "") {
@@ -30,12 +29,19 @@ const login = async (
     requestOptions
   );
 
-  const data: LogInResBody = await response.json();
-
-  if (response.status === 200 && response.ok) {
-    localStorage.setItem("token", data.token);
+  if (response.status !== 401 && response.status !== 200) {
+    newFormErrors.push("Something went wrong, Try again later");
+    return newFormErrors;
   }
-  return newFormErrors;
+
+  const userData: LogInResBody = await response.json();
+
+  if (userData.status !== null) {
+    newFormErrors.push(userData.message);
+    return newFormErrors;
+  }
+
+  return userData;
 };
 
 export default login;

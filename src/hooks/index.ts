@@ -1,3 +1,3 @@
-import useToken from "./useToken";
+import { useAuth, useLogin } from "./useAuth";
 
-export { useToken };
+export { useAuth, useLogin };

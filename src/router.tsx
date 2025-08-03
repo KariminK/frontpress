@@ -2,14 +2,17 @@ import { Route, Routes } from "react-router";
 import Dashboard from "./routes/dashboard";
 import Login from "./routes/auth/login";
 import Register from "./routes/auth/register";
+import { AuthProvider } from "./provider/auth";
 
 const Router = () => {
   return (
-    <Routes>
-      <Route index element={<Dashboard />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/register" element={<Register />} />
-    </Routes>
+    <AuthProvider>
+      <Routes>
+        <Route index element={<Dashboard />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+      </Routes>
+    </AuthProvider>
   );
 };
 
