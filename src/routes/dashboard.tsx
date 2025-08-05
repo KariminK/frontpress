@@ -1,5 +1,6 @@
 import { Footer, Header, Navbar } from "../components/modules";
 import { PostList } from "../features/posts";
+import { useAuth } from "../hooks";
 
 const Dashboard = () => {
   const posts = [
@@ -44,10 +45,12 @@ const Dashboard = () => {
       create_date: "20/24/2005",
     },
   ];
+  const token = useAuth();
   return (
     <>
       <Navbar />
       <Header />
+      {token && <h1>Welcome back, karimin</h1>}
       <PostList posts={posts} />
       <Footer />
     </>

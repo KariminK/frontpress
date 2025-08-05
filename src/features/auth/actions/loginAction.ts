@@ -1,7 +1,7 @@
 import { LogInResBody, SuccessLogInResBody } from "../../../types/user";
 
-const login = async (
-  _prevState: string[],
+const loginAction = async (
+  _prevState: string[] | SuccessLogInResBody,
   formData: FormData
 ): Promise<string[] | SuccessLogInResBody> => {
   const email = formData.get("email") as string;
@@ -19,8 +19,8 @@ const login = async (
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      email: "xkarimink@gmail.com",
-      password: "Xyz!1425232",
+      email,
+      password,
     }),
   };
 
@@ -36,7 +36,7 @@ const login = async (
 
   const userData: LogInResBody = await response.json();
 
-  if (userData.status !== null) {
+  if (userData.message !== "Authorized Correctly!") {
     newFormErrors.push(userData.message);
     return newFormErrors;
   }
@@ -44,4 +44,4 @@ const login = async (
   return userData;
 };
 
-export default login;
+export default loginAction;

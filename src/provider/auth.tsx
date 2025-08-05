@@ -5,6 +5,7 @@ const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [token, setToken_] = useState(localStorage.getItem("token"));
 
   const login = (newToken: string) => {
+    localStorage.setItem("token", newToken);
     setToken_(newToken);
   };
 
