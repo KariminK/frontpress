@@ -1,5 +1,5 @@
 import { useActionState, useEffect } from "react";
-import { FormPending, Input } from "../../components/ui";
+import { Input, SubmitBtn } from "../../components/ui";
 import { FormErrorList } from "../../components/ui";
 import { loginAction } from "./actions/";
 import { SuccessLogInResBody } from "../../types/user";
@@ -36,13 +36,8 @@ const LoginForm = () => {
         name="password"
         type="password"
       />
-      <input
-        type="submit"
-        value="Log in"
-        className="px-4 my-5 py-3 w-full text-white rounded-md cursor-pointer bg-linear-180 from-green-500/75 to-green-600/75"
-      />
       <FormErrorList errors={Array.isArray(formResult) ? formResult : []} />
-      <FormPending />
+      <SubmitBtn value="Login" />
     </form>
   );
 };

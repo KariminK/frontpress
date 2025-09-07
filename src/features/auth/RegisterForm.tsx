@@ -1,5 +1,5 @@
 import { useActionState } from "react";
-import { FormErrorList, FormPending, Input } from "../../components/ui";
+import { FormErrorList, Input, SubmitBtn } from "../../components/ui";
 import { registerAction } from "./actions";
 
 const RegisterForm = () => {
@@ -21,13 +21,8 @@ const RegisterForm = () => {
         name="confirmPassword"
         type="password"
       />
-      <input
-        type="submit"
-        value="Sign in"
-        className="px-4 my-5 py-3 w-full text-white rounded-md cursor-pointer bg-linear-180 from-green-500/75 to-green-600/75"
-      />
+      <SubmitBtn value="Register" />
       <FormErrorList errors={formResult} />
-      <FormPending />
     </form>
   );
 };

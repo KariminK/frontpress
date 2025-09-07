@@ -1,5 +1,5 @@
 import Input from "./form/input";
 import FormErrorList from "./form/errorList";
-import FormPending from "./form/pending";
+import SubmitBtn from "./form/submit";
 
-export { Input, FormErrorList, FormPending };
+export { Input, FormErrorList, SubmitBtn };
