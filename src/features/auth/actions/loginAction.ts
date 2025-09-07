@@ -6,11 +6,9 @@ const loginAction = async (
 ): Promise<string[] | SuccessLogInResBody> => {
   const email = formData.get("email") as string;
   const password = formData.get("password") as string;
-  const newFormErrors: string[] = [];
 
   if (email === "" || password === "") {
-    newFormErrors.push("Login or password cannot be empty");
-    return newFormErrors;
+    return ["login or password cannot be empty"];
   }
 
   const requestOptions: RequestInit = {
@@ -30,15 +28,13 @@ const loginAction = async (
   );
 
   if (response.status !== 401 && response.status !== 200) {
-    newFormErrors.push("Something went wrong, Try again later");
-    return newFormErrors;
+    return ["Something went wrong, Try again later"];
   }
 
   const userData: LogInResBody = await response.json();
 
   if (userData.message !== "Authorized Correctly!") {
-    newFormErrors.push(userData.message);
-    return newFormErrors;
+    return [userData.message];
   }
 
   return userData;

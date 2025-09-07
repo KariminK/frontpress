@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import { Footer, Navbar } from "../../components/modules";
 import { LoginForm } from "../../features/auth";
 
@@ -16,9 +17,9 @@ const Login = () => {
       </div>
       <p className="mt-5 text-center">
         You don't have an account?{" "}
-        <a href="" className="text-green-500">
+        <Link to={"/register"} className="text-green-500">
           Create one
-        </a>{" "}
+        </Link>{" "}
         for free
       </p>
       <Footer />

@@ -17,9 +17,23 @@ export interface LogInReqBody {
   password: string;
 }
 
+export interface SignInReqBody {
+  email: string;
+  username: string;
+  password: string;
+}
+
 export interface AuthError {
   status: number;
   message: string;
+}
+
+export interface ValidationError {
+  type: "field";
+  location: Location;
+  path: string;
+  value?: string;
+  msg: string;
 }
 
 export interface LogInResBody extends AuthError, SuccessLogInResBody {}

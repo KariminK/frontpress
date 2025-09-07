@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 const Navbar = () => {
   return (
     <nav className="sticky z-10 flex justify-between px-5 py-3 mb-10 border shadow-lg border-gray-200/50 bg-white/50 rounded-2xl top-5 backdrop-blur-lg">
@@ -8,12 +10,12 @@ const Navbar = () => {
       </ul>
       <ul className="flex items-center gap-5">
         <li className="">
-          <a href="./sign-in">Sign in</a>
+          <Link to={"/register"}>Register</Link>
         </li>
         <li className="px-4 py-2 rounded-md bg-linear-180 from-green-500/75 to-green-600/75">
-          <a href="./login" className="text-white">
-            Login
-          </a>
+          <Link to={"/login"} className="text-white">
+            Log in
+          </Link>
         </li>
       </ul>
     </nav>

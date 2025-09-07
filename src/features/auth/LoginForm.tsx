@@ -1,11 +1,10 @@
 import { useActionState, useEffect } from "react";
-import { Input } from "../../components/ui";
+import { FormPending, Input } from "../../components/ui";
 import { FormErrorList } from "../../components/ui";
-import loginAction from "./actions/loginAction";
+import { loginAction } from "./actions/";
 import { SuccessLogInResBody } from "../../types/user";
 import { useNavigate } from "react-router";
 import { useLogin } from "../../hooks";
-import { useFormStatus } from "react-dom";
 
 type actionState = SuccessLogInResBody | string[];
 
@@ -18,7 +17,6 @@ const LoginForm = () => {
     loginAction,
     []
   );
-  const { pending } = useFormStatus();
   const navigator = useNavigate();
   const login = useLogin();
 
@@ -28,9 +26,6 @@ const LoginForm = () => {
       navigator("/");
     }
   }, [formResult]);
-
-  // TODO: fix pending state
-  if (pending) return <h1>Processing...</h1>;
 
   return (
     <form action={formAction}>
@@ -47,6 +42,7 @@ const LoginForm = () => {
         className="px-4 my-5 py-3 w-full text-white rounded-md cursor-pointer bg-linear-180 from-green-500/75 to-green-600/75"
       />
       <FormErrorList errors={Array.isArray(formResult) ? formResult : []} />
+      <FormPending />
     </form>
   );
 };
