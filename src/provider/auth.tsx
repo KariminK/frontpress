@@ -9,9 +9,14 @@ const AuthProvider = ({ children }: { children: ReactNode }) => {
     setToken_(newToken);
   };
 
+  const logout = () => {
+    localStorage.removeItem("token");
+    setToken_(null);
+  };
+
   return (
     <AuthContext value={token}>
-      <AuthLoginContext value={login}>{children}</AuthLoginContext>
+      <AuthLoginContext value={{ login, logout }}>{children}</AuthLoginContext>
     </AuthContext>
   );
 };

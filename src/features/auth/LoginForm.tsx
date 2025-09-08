@@ -18,11 +18,11 @@ const LoginForm = () => {
     []
   );
   const navigator = useNavigate();
-  const login = useLogin();
+  const user = useLogin();
 
   useEffect(() => {
-    if (isSuccessResponse(formResult) && login !== null) {
-      login(formResult.token);
+    if (isSuccessResponse(formResult) && user !== null) {
+      user.login(formResult.token);
       navigator("/");
     }
   }, [formResult]);
