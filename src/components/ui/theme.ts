@@ -4,6 +4,9 @@ const config = defineConfig({
   globalCss: {
     html: {
       colorPalette: "green",
+      maxWidth: "5xl",
+      mx: "auto",
+      mt: "4",
     },
   },
 });
