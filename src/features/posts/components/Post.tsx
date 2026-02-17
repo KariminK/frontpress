@@ -1,7 +1,22 @@
-import { Box, Button, Card, Image } from "@chakra-ui/react";
+import { Badge, Flex, Text, Box, Button, Card, Image } from "@chakra-ui/react";
 import { BiArrowToRight } from "react-icons/bi";
 
-export default function Post() {
+// TODO: EXTRACT POST TYPE TO OTHER FILE
+interface Post {
+  id: number;
+  created_at: Date;
+  published_at: Date;
+  title: string;
+  content: string;
+  authorName: string;
+}
+
+export default function Post({
+  published_at,
+  title,
+  content,
+  authorName,
+}: Post) {
   return (
     <Card.Root flexDirection={"row"}>
       <Image
@@ -10,18 +25,17 @@ export default function Post() {
       />
       <Box>
         <Card.Body gap={2}>
-          <Card.Title>
-            IEM Krakow is over! See overview of the tournament
-          </Card.Title>
-          <Card.Description lineHeight={"tall"}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur
-            totam consequuntur, itaque distinctio fuga doloribus aliquid culpa
-            non hic aliquam. Eveniet illo facilis quibusdam, animi aliquam
-            maxime! Commodi numquam ea itaque quos corpori...
-          </Card.Description>
+          <Flex justifyContent={"space-between"}>
+            <Badge variant={"subtle"}>{authorName}</Badge>
+            <Text fontSize={"xs"} color={"GrayText"}>
+              {published_at.toDateString()}
+            </Text>
+          </Flex>
+          <Card.Title>{title}</Card.Title>
+          <Card.Description lineHeight={"tall"}>{content}</Card.Description>
         </Card.Body>
         <Card.Footer>
-          <Button variant={"outline"}>
+          <Button variant={"subtle"}>
             Read more <BiArrowToRight></BiArrowToRight>
           </Button>
         </Card.Footer>
