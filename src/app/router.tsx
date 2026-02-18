@@ -1,17 +1,18 @@
 import { Route, Routes } from "react-router";
-import { Landing, Home } from "./routes";
 import { LoginForm, RegisterForm } from "@/features/auth";
-import { PostList } from "@/features/posts";
+import { PostDetails, PostList } from "@/features/posts";
+import { HomeLayout, LandingLayout } from "@/components/layouts";
 
 export default function Router() {
   return (
     <Routes>
-      <Route element={<Landing />}>
+      <Route element={<LandingLayout />}>
         <Route index element={<LoginForm />} />
         <Route path="register" element={<RegisterForm />} />
       </Route>
-      <Route path="/home" element={<Home />}>
-        <Route index element={<PostList />} />
+      <Route element={<HomeLayout />}>
+        <Route path="/home" element={<PostList />} />
+        <Route path="/post/:postId" element={<PostDetails />}></Route>
       </Route>
     </Routes>
   );

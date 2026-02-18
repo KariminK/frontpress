@@ -1,7 +1,7 @@
-import { Footer, Navbar } from "@/components/modules";
 import { Outlet } from "react-router";
+import { Footer, Navbar } from "../modules";
 
-export default function Home() {
+export default function HomeLayout() {
   return (
     <>
       <Navbar />

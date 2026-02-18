@@ -1,7 +1,7 @@
 import { Flex, Grid, Heading, Mark } from "@chakra-ui/react";
 import { Outlet } from "react-router";
 
-export default function Landing() {
+export default function LandingLayout() {
   return (
     <Flex justifyContent={"center"} alignItems={"center"} height={"vh"}>
       <Grid templateColumns={"1fr 1fr"} gap={"10"} maxWidth={"4xl"}>
