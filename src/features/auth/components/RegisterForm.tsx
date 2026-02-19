@@ -29,7 +29,7 @@ export default function RegisterForm() {
         <Button mt={"3"}>Register</Button>
         <Text>
           Already have an account?{" "}
-          <Link>
+          <Link as={"span"}>
             <RouterLink to={"/"}>Go back to login</RouterLink>
           </Link>
         </Text>

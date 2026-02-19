@@ -16,7 +16,7 @@ export default function LoginForm() {
         <Button mt={"3"}>Login</Button>
         <Text>
           Are you new?{" "}
-          <Link>
+          <Link as={"span"}>
             <RouterLink to={"/register"}>Create your account now!</RouterLink>
           </Link>
         </Text>

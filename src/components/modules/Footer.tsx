@@ -7,7 +7,7 @@ export default function Footer() {
       <Text textAlign={"center"}>
         Made by{" "}
         <RouterLink to={"https://karimink.github.io/"}>
-          <Link variant={"underline"} fontWeight={"bold"}>
+          <Link as={"span"} variant={"underline"} fontWeight={"bold"}>
             Karimin
           </Link>
         </RouterLink>
