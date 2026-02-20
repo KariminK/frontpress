@@ -60,7 +60,7 @@ export default function PostList() {
   ];
 
   return (
-    <Flex direction={"column"} gap={"5"} mt={"10"}>
+    <Flex direction={"column"} mt={"10"} gap={5}>
       <For each={posts}>
         {(item) => (
           <Post

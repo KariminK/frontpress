@@ -34,7 +34,7 @@ export default function PostDetails() {
         Show comments
         <BiComment />
       </Button>
-      <Button mt={5} ml={2} variant={"surface"} colorPalette={"red"}>
+      <Button mt={5} ml={2} variant={"surface"} colorPalette={"orange"}>
         Report
         <BiFlag />
       </Button>
