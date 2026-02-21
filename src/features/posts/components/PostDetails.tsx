@@ -1,6 +1,6 @@
 // TODO: ADD POST FETCH LOGIC
 
-import { CommentList } from "@/features/comments";
+import { AddCommentForm, CommentList } from "@/features/comments";
 import { Badge, Button, Flex, Heading, Text } from "@chakra-ui/react";
 import { BiComment, BiFlag } from "react-icons/bi";
 
@@ -38,6 +38,7 @@ export default function PostDetails() {
         Report
         <BiFlag />
       </Button>
+      <AddCommentForm />
       <CommentList />
     </>
   );
