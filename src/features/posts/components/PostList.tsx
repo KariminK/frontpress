@@ -62,8 +62,9 @@ export default function PostList() {
   return (
     <Flex direction={"column"} mt={"10"} gap={5}>
       <For each={posts}>
-        {(item) => (
+        {(item, index) => (
           <Post
+            key={index}
             id={item.id}
             created_at={item.created_at}
             published_at={item.published_at}
