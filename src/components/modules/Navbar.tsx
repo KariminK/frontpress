@@ -1,7 +1,14 @@
+import { useAuth } from "@/features/auth";
 import { Button, Flex, Heading, IconButton, Mark } from "@chakra-ui/react";
 import { BiLogOut, BiPlus } from "react-icons/bi";
 
 export default function Navbar() {
+  const auth = useAuth();
+
+  const handleLogout = () => {
+    auth?.setToken("");
+  };
+
   return (
     <nav>
       <Flex
@@ -24,7 +31,10 @@ export default function Navbar() {
           Create new post
           <BiPlus></BiPlus>
         </Button>
-        <IconButton variant={"surface"} colorPalette={"red"}>
+        <IconButton
+          onClick={handleLogout}
+          variant={"surface"}
+          colorPalette={"red"}>
           <BiLogOut></BiLogOut>
         </IconButton>
       </Flex>

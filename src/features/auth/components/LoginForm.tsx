@@ -2,17 +2,20 @@ import { Button, Field, Flex, Input, Link, Text } from "@chakra-ui/react";
 import { useActionState } from "react";
 import { Link as RouterLink, useNavigate } from "react-router";
 import { useAuth } from "@/features/auth";
-
+import Pending from "./Pending";
 export default function LoginForm() {
-  const [message, action] = useActionState<string, FormData>(loginAction, "");
+  const [message, action, isPending] = useActionState<string, FormData>(
+    loginAction,
+    "",
+  );
   const auth = useAuth();
   const navigate = useNavigate();
 
   async function loginAction(_prevState: string, formData: FormData) {
-    const email = formData.get("email")?.toString();
-    const password = formData.get("password")?.toString();
+    const email = formData.get("email")!.toString();
+    const password = formData.get("password")!.toString();
 
-    if (!email || email.length === 0 || !password || password.length === 0) {
+    if (email.length === 0 || password.length === 0) {
       return "Email and password cannot be empty";
     }
 
@@ -40,6 +43,8 @@ export default function LoginForm() {
       return "Unknown error occured";
     }
   }
+
+  if (isPending) return <Pending />;
 
   return (
     <form action={action}>
