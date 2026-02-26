@@ -1,6 +1,6 @@
 import { Button, Field, Flex, Input, Link, Text } from "@chakra-ui/react";
 import { useActionState } from "react";
-import { Link as RouterLink } from "react-router";
+import { Navigate, Link as RouterLink } from "react-router";
 import Pending from "./Pending";
 
 interface RegisterFormFieldErrors {
@@ -12,12 +12,12 @@ interface RegisterFormFieldErrors {
 
 export default function RegisterForm() {
   const [fieldErrors, action, isPending] = useActionState<
-    RegisterFormFieldErrors,
+    RegisterFormFieldErrors | true,
     FormData
   >(registerAction, {});
 
   async function registerAction(
-    _prevState: RegisterFormFieldErrors,
+    _prevState: RegisterFormFieldErrors | true,
     formData: FormData,
   ) {
     const fieldErrors: RegisterFormFieldErrors = {};
@@ -39,6 +39,19 @@ export default function RegisterForm() {
       fieldErrors.password = "passwords have to be identical";
       fieldErrors.confirmPassword = "passwords have to be identical";
     }
+
+    try {
+      const response = await fetch("http://localhost:3000/user/sign-in");
+      const data = await response.json();
+
+      if (response.ok && response.status === 200) {
+        console.log(data);
+        return true;
+      }
+    } catch (error) {
+      console.log(error);
+    }
+
     return fieldErrors;
   }
 
@@ -46,6 +59,9 @@ export default function RegisterForm() {
     return <Pending />;
   }
 
+  if (fieldErrors === true) {
+    return <Navigate to={"/"} />;
+  }
   return (
     <form action={action}>
       <Flex direction="column" gap="5">
