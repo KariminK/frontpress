@@ -6,7 +6,6 @@ const config = defineConfig({
       colorPalette: "green",
       maxWidth: "5xl",
       mx: "auto",
-      mt: "4",
     },
   },
 });

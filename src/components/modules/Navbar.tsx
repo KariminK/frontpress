@@ -1,12 +1,15 @@
 import { useAuth } from "@/features/auth";
 import { Button, Flex, Heading, IconButton, Mark } from "@chakra-ui/react";
 import { BiLogOut, BiPlus } from "react-icons/bi";
+import { useNavigate } from "react-router";
 
 export default function Navbar() {
   const auth = useAuth();
+  const navigate = useNavigate();
 
   const handleLogout = () => {
     auth?.setToken("");
+    navigate("/", { replace: true });
   };
 
   return (

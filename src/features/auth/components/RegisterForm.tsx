@@ -8,6 +8,7 @@ interface RegisterFormFieldErrors {
   login?: string;
   password?: string;
   confirmPassword?: string;
+  form?: string;
 }
 
 export default function RegisterForm() {
@@ -41,15 +42,26 @@ export default function RegisterForm() {
     }
 
     try {
-      const response = await fetch("http://localhost:3000/user/sign-in");
+      const reqBody = { email, password, username: login };
+
+      const response = await fetch("http://localhost:3000/user/sign-in", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(reqBody),
+      });
       const data = await response.json();
 
       if (response.ok && response.status === 200) {
         console.log(data);
         return true;
+      } else {
+        fieldErrors.form = data.message;
       }
-    } catch (error) {
-      console.log(error);
+    } catch (_error: unknown) {
+      const error = _error as Error;
+      fieldErrors.form = error.message;
     }
 
     return fieldErrors;
@@ -93,6 +105,11 @@ export default function RegisterForm() {
         <Button mt="3" type="submit">
           Register
         </Button>
+        {fieldErrors.form && (
+          <Text color={"fg.error"} h={"4"}>
+            {fieldErrors.form}
+          </Text>
+        )}
         <Text>
           Already have an account?{" "}
           <Link as="span">
