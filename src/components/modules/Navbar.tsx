@@ -1,7 +1,7 @@
 import { useAuth } from "@/features/auth";
 import { Button, Flex, Heading, IconButton, Mark } from "@chakra-ui/react";
-import { BiLogOut, BiPlus } from "react-icons/bi";
-import { useNavigate } from "react-router";
+import { BiLogOut, BiPlus, BiUser } from "react-icons/bi";
+import { Link, useNavigate } from "react-router";
 
 export default function Navbar() {
   const auth = useAuth();
@@ -34,6 +34,11 @@ export default function Navbar() {
           Create new post
           <BiPlus></BiPlus>
         </Button>
+        <Link to={"/profile"}>
+          <IconButton variant={"surface"}>
+            <BiUser />
+          </IconButton>
+        </Link>
         <IconButton
           onClick={handleLogout}
           variant={"surface"}
